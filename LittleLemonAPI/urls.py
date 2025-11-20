@@ -8,20 +8,23 @@ urlpatterns = [
     path('users/users/me/', views.UserView, name='user'),
     path('token/login/', obtain_auth_token, name='login'),
     
+    path('groups/manager/users/', views.managerListView, name='manager'),
+    path('groups/manager/users/<int:pk>/', views.managerView, name='manager'),
+    
+    path('groups/delivery-crew/users/', views.deliveryCrewListView, name='delivery-crew'),
+    path('groups/delivery-crew/users/<int:pk>/', views.deliveryCrewView, name='delivery-crew'),
+    
     #Menu sección
     path('menu-items/', views.MenuItemsView, name='menu-items'),
     path('menu-items/<int:pk>/', views.MenuItemView, name='menu-item'),
     path('category/', views.categoriesView, name='category'),
     path('category/<int:pk>/', views.categoryView, name='category-detail'),
     
-    #path('categories/', views.CategoriesView.as_view(), name='categories'),
-    #path('carts/', views.CartsView.as_view(), name='carts'),
-    #path('orders/', views.OrdersView.as_view(), name='orders'),
-    #path('order_items/', views.OrderItemsView.as_view(), name='order_items'),
+    #Cart sección
+    path('cart/menu-items', views.CartView, name='cart'),
     
+    #Order sección
+    path('orders/', views.OrderView, name='orders'),
+    path('orders/<int:pk>/', views.OrderView, name='order'),
     
-    path('newmanager/', views.newManager, name='newManager'),
-    path('managerlist/', views.managerList, name='managerList'),
-    path('newdeliverymember/', views.newDeliveryMember, name='newDeliveryMember'),
-    path('assignDeliveryMember/<int:pk>/', views.assignDeliveryMember, name='assignDeliveryMember'),
 ]
